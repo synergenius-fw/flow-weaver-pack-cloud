@@ -59,7 +59,10 @@ export async function startTunnel(options: TunnelOptions): Promise<void> {
   log.info('Connecting to cloud server...');
   const wsProtocol = cloudUrl.startsWith('https') ? 'wss' : 'ws';
   const wsHost = cloudUrl.replace(/^https?:\/\//, '');
-  const wsUrl = `${wsProtocol}://${wsHost}/api/tunnel?token=${encodeURIComponent(options.key)}`;
+  // Production: Caddy handle_path /api/* strips the prefix before proxying.
+  // Local dev: Fastify listens at /tunnel directly (no /api prefix).
+  const pathPrefix = cloudUrl.includes('localhost') || cloudUrl.includes('127.0.0.1') ? '' : '/api';
+  const wsUrl = `${wsProtocol}://${wsHost}${pathPrefix}/tunnel?token=${encodeURIComponent(options.key)}`;
 
   const cloudWs = createWs(wsUrl);
 
