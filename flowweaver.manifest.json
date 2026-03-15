@@ -1,0 +1,18 @@
+{
+  "manifestVersion": 2,
+  "name": "@synergenius/flow-weaver-pack-cloud",
+  "version": "0.1.0",
+  "nodeTypes": [],
+  "workflows": [],
+  "patterns": [],
+  "exportTargets": [],
+  "compileTargets": [],
+  "templates": [],
+  "services": [
+    {
+      "name": "tunnel",
+      "description": "Connect local project to Flow Weaver Cloud Studio",
+      "file": "dist/tunnel.js"
+    }
+  ]
+}

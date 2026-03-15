@@ -1,0 +1,54 @@
+{
+  "name": "@synergenius/flow-weaver-pack-cloud",
+  "version": "0.1.0",
+  "description": "Cloud Studio tunnel and services for Flow Weaver",
+  "keywords": [
+    "flow-weaver-marketplace-pack",
+    "flow-weaver",
+    "cloud",
+    "tunnel",
+    "studio"
+  ],
+  "flowWeaver": {
+    "type": "marketplace-pack",
+    "engineVersion": ">=0.21.0",
+    "categories": [
+      "cloud",
+      "services"
+    ]
+  },
+  "bin": {
+    "fw-cloud": "./dist/cli.js"
+  },
+  "main": "./dist/tunnel.js",
+  "types": "./dist/tunnel.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "flowweaver.manifest.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "release": "tsx scripts/release.ts"
+  },
+  "peerDependencies": {
+    "@synergenius/flow-weaver": ">=0.21.0"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@synergenius/flow-weaver": "^0.21.6",
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/synergenius-fw/flow-weaver-pack-cloud.git"
+  }
+}
